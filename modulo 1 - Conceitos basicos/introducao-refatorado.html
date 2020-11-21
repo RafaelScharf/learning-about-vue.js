@@ -1,0 +1,114 @@
+<!-- Aqui importamos o VUE.JS pela CDN-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+
+<!-- CSS Reset -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+
+<!-- Milligram CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+
+<!-- You should properly set the path from the main file. -->
+
+<!-- Aqui iniciamos nosso corpo HTML-->
+<div id="app">
+  <center>
+  <hr>
+    <h2>Esse é nosso hello word</h2>
+    <p>Primero precisamos instanciar o Vue com o código abaixo:
+      <br><code>const app = new Vue({ })</code>
+    </p>
+    <p>Agora criamos nosso objetos dentro da instacia do vue 
+      <a :href="linkDocVue"><strong target="_blank">data</strong></a> e do 
+      <a :href="linkDocVue"><strong>method</strong></a>
+      <br><code>const app = new Vue({ data: { }, methods: {  } })</code>
+    </p>    
+    <p>Utilizando esses objetos do <b>vue</b> podemos criar obejtos e funções que retornem um valor no html veja: <br>
+      No <b>data</b> por exemplo podemos guardar objetos dentro dele: <br>
+      <code>const app = new Vue({ data: { message: 'Hello Vue!' }, methods: { } })</code> <br>
+      já no <b>methos</b> pode criar funções que nos retorne uma string: 
+      <br><code>const app = new Vue({ data: { }, methods: { helloWord() {
+        return this.message = 'Olá VUE JS'
+      } } })</code>      
+    </p>
+    <p v-once>{{ message }}</p> 
+    <p>{{ helloWord() }}</p> 
+  <hr>
+    <a :href="link">Google</a>
+  <hr>
+    <p v-html="linkHtml"></p>
+  <hr>
+    <p>Passe o mouse sobre o quadrado abaixo</p>
+    <div @mousemove="getClientXY" style="width: 40%; height: 25%; background-color: aqua;">
+      @mousemove="getClientXY"
+      <div @mousemove.stop="" style="width: 70%; height: 35%; background-color: burlywood;">@mousemove.stop=""</div>
+    </div>
+    <p>Posição Mouse X: {{x}} Y: {{y}}</p>
+  <hr>
+    <p>Events Keys - Press Enter</p>
+    <input type="text" @keyup.enter="eventKeyAlert">
+  <hr>
+    <p>{{title}}</p>
+    <input type="text" v-model="title" />
+  <hr>
+    <p>Contador e Propriedades Computadas e Monitoramento com Watch</p>
+    <button @click="soma">Aumentar</button>
+    <button @click="contador2++">Aumentar2</button>
+    <button @click="subtrai">Diminuir</button>
+    <p>Contador: {{contador}} | {{contador2}}</p>
+    <p>{{resultado}}</p>
+    <input type="text" :value="contador">
+  </center>
+</div>
+
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "Hello Vue!",
+      link: 'google.com',
+      linkHtml: '<a href="google.com">Google</a>',
+      x: 0,
+      y: 0,
+      title: 'Two-Way-Binding',
+      contador: 0,
+      contador2: 0,
+      linkDocVue: 'https://vuejs.org/v2/guide/#What-is-Vue-js'
+
+    },
+    computed: {
+      resultado() {
+        console.log('a')
+        return this.contador > 5 ?
+        'Maior que 5' : 'Menor que 5'
+      }
+    },
+    watch: {
+      contador(newValue, oldValue) {
+        newValue > 10 ?
+        this.contador = 0 : this.contador = this.contador
+      }
+    },
+    methods: {
+      helloWord: function() {
+        return this.message = 'Olá VUE JS'
+      },
+      getClientXY: function(e) {
+        this.x = e.clientX
+        this.y = e.clientY
+      },
+      eventKeyAlert: function() {
+        alert('Disparou com o clique no ENTER')
+      },
+      soma() {
+        this.contador++
+      },
+      subtrai() {
+        this.contador--
+      }
+      
+    },
+  });
+</script>
