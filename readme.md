@@ -3,7 +3,7 @@
 Esse é nosso hello word
 -----------------------
 
-####Veja o arquivo helloWord.html 
+#### Veja o arquivo helloWord.html 
 
 Primero precisamos instanciar o Vue com o código abaixo: \
 >`const app = new Vue({ })`
