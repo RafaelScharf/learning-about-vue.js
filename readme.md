@@ -16,6 +16,7 @@ retornem um valor no html com a interpolação veja: \
  No **data** por exemplo podemos guardar objetos dentro dele: \
 >`const app = new Vue({ data: { message: 'Hello Vue!' }, methods: { } })`
 \
+
 >Interpolação é a forma que exibimos nossos valores de objetos e funções no HTML usando as 
 {{ objetct }} \
 
