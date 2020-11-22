@@ -3,7 +3,7 @@
 Esse é nosso hello word
 -----------------------
 
-Acesse o arquivo introdução introdução do modulo 1 e veja o exemplo abaixo
+####Veja o arquivo helloWord.html 
 
 Primero precisamos instanciar o Vue com o código abaixo: \
 >`const app = new Vue({ })`
@@ -37,13 +37,12 @@ retornem um valor no html com a interpolação veja: \
     el: "#app",
     data: {
       message: "Hello Vue!",
-      
     },
     methods: {
-      methods: {
       helloWord() {
-        return this.message = 'Olá VUE JS'
+        return this.message = 'Ola VUE JS'
       }
+      
     },
   });
 </script>

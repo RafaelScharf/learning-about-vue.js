@@ -1,0 +1,55 @@
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app1">
+  {{title}} | <br>
+  <button @click="addString">Adicione uma "!" na mesma instancia</button>
+  <button @click="addString2">Adicione uma "!" na outra instancia</button>
+
+</div>
+
+<hr>
+
+<div id="app2">
+  {{title2}} <br>
+  <button @click="addString">Adicione uma "!" na mesma instancia</button>
+  <button @click="addString2">Adicione uma "!" na outra instancia</button>
+
+</div>
+
+<script>
+  const vm1 = new Vue({
+    el: "#app1",
+    data: {
+      title: 'Title 1'
+    },
+
+    methods:{
+      addString() {
+        this.title += "!"
+      },
+      addString2() {
+        vm2.title2 += "!"
+      }
+    }
+  
+  });
+
+  const vm2 = new Vue({
+    el: "#app2",
+    data: {
+     title2: 'Title 2'
+    },
+
+    methods:{
+      addString() {
+        this.title2 += "!"
+      },
+      addString2() {
+        vm1.title += "!"
+      }
+    }    
+   
+  });
+
+</script>

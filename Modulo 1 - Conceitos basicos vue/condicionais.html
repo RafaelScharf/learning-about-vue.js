@@ -21,6 +21,9 @@
  <p v-else>Usuário Deslogado</p>
  <button @click="isLogged">{{ logged ? 'Sair' : 'Entrar' }}</button>
  <button v-if="!logged" @click="isAnonymous">Entra como anonimo? {{ returnTextButtonAnonymous }}</button>
+ <footer v-show="logged">
+   Magica do <b>v-show</b>
+ </footer>
 </div>
 
 <script>

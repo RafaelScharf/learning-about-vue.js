@@ -1,0 +1,30 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+  <div id="components">
+    <Title>
+  </div>
+  
+</div>
+
+<script>
+  const createComp = Vue.component((name, component))
+
+  createComp('h', {
+      template: `<h1>{{ message }}</h1>`,
+      data: function()  {
+        return {
+          message: "Hello Vue!",
+        }
+      },
+      methods: {
+       
+        
+      },
+  })
+
+  const app = new Vue({
+    el: "#app",
+   
+  });
+</script>

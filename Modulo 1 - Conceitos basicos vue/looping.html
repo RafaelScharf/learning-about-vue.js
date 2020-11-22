@@ -1,0 +1,81 @@
+<!-- Aqui importamos o VUE.JS pela CDN-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+
+<!-- CSS Reset -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+
+<!-- Milligram CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+
+<!-- You should properly set the path from the main file. -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+  <div class="container">
+    <h2>List V1 - For</h2>
+    <ul>
+      <li v-for="color in colors" :id="color" :key="i">{{ color }}</li>
+    </ul>
+    <hr>
+    <h2>List V2 - Indice</h2>
+    <ul>
+      <li v-for="(color, i) in colors" :id="color" :key="i">
+        Posição: {{ i }} | Cor: {{ color }}</li>
+    </ul>
+    <hr>
+    <h2>List V3 - Template</h2>
+      <template v-for="(color, i) in colors" :id="color">
+        <b :key="i">Posição: {{ i }} | Cor: {{ color }}</b><br>
+      </template>
+    <hr>
+    <h2>List V4 - Objetos</h2>
+    <ul>
+      <li v-for="(person, i) in people">
+        Person: {{ i }}
+        <ul>
+          <li v-for="(value, key, i) in person" :key="value">{{ key }}: {{ value }}</li>
+        </ul>
+      </li>
+    </ul>
+    <h2>List V5 - Numeros</h2>
+    <ul>
+      <li v-for="n in 10">
+        Number: {{ n }}
+      </li>
+    </ul>
+    <h2>List V6 - Lista dinamica</h2>
+ 
+      <input type="text" v-model="newColor">
+      <button @click="pushListColor">Adicionar Cor</button>
+ 
+    <ul>
+      <li v-for="(color, i) in colors" :id="color" :key="i">
+        Posição: {{ i }} | Cor: {{ color }}</li>
+    </ul>
+   
+  </div>  
+</div>
+
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      colors: ['red', 'green', 'yellow', 'blue'],
+      people: [
+        { name: 'João', age: 16, weight: 59},
+        { name: 'Ana', age: 18, weight: 60}
+      ],
+      newColor: ''
+      
+    },
+    methods: {
+      pushListColor() {
+        console.log(this.newColor)
+        this.colors.push(this.newColor)
+      }
+    }
+  });
+</script>
