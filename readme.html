@@ -7,11 +7,10 @@
       <br><code>const app = new Vue({ })</code>
     </p>
     <p>Agora criamos nosso objetos dentro da instacia do vue 
-      <a :href="linkDocVue"><strong target="_blank">data</strong></a> e do 
-      <a :href="linkDocVue"><strong>method</strong></a>
+    
       <br><code>const app = new Vue({ data: { }, methods: {  } })</code>
     </p>    
-    <p>Utilizando esses objetos do <b>vue</b> podemos criar obejtos e funções que retornem um valor no html veja: <br>
+    <p>Utilizando esses objetos do <b>vue</b> podemos criar obejtos e funções que retornem um valor no html com a interpolação veja: <br>
       No <b>data</b> por exemplo podemos guardar objetos dentro dele: <br>
       <code>const app = new Vue({ data: { message: 'Hello Vue!' }, methods: { } })</code> <br>
       
@@ -20,32 +19,8 @@
         return this.message = 'Olá VUE JS'
       } } })</code>      
     </p>
-    <p v-once>{{ message }}</p> 
+   
     <p>{{ helloWord() }}</p> 
-  <hr>
-    <a :href="link">Google</a>
-  <hr>
-    <p v-html="linkHtml"></p>
-  <hr>
-    <p>Passe o mouse sobre o quadrado abaixo</p>
-    <div @mousemove="getClientXY" style="width: 40%; height: 25%; background-color: aqua;">
-      @mousemove="getClientXY"
-      <div @mousemove.stop="" style="width: 70%; height: 35%; background-color: burlywood;">@mousemove.stop=""</div>
-    </div>
-    <p>Posição Mouse X: {{x}} Y: {{y}}</p>
-  <hr>
-    <p>Events Keys - Press Enter</p>
-    <input type="text" @keyup.enter="eventKeyAlert">
-  <hr>
-    <p>{{title}}</p>
-    <input type="text" v-model="title" />
-  <hr>
-    <p>Contador e Propriedades Computadas e Monitoramento com Watch</p>
-    <button @click="soma">Aumentar</button>
-    <button @click="contador2++">Aumentar2</button>
-    <button @click="subtrai">Diminuir</button>
-    <p>Contador: {{contador}} | {{contador2}}</p>
-    <p>{{resultado}}</p>
-    <input type="text" :value="contador">
+ 
   </center>
 </div>

@@ -1,0 +1,56 @@
+<!-- Aqui importamos o VUE.JS pela CDN-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+
+<!-- CSS Reset -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+
+<!-- Milligram CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+
+<!-- You should properly set the path from the main file. -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+ <label >Insira seu usuário:</label>
+ <input type="text" v-model="name">
+ <p v-if="logged && !anonymous">Usuário logado {{ name }}</p>
+ <p v-else-if="logged && anonymous">Usuário logado Anonimo</p>
+ <p v-else>Usuário Deslogado</p>
+ <button @click="isLogged">{{ logged ? 'Sair' : 'Entrar' }}</button>
+ <button v-if="!logged" @click="isAnonymous">Entra como anonimo? {{ returnTextButtonAnonymous }}</button>
+</div>
+
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+     name: '',
+     logged: false,
+     anonymous: false
+      
+    },
+    computed: {
+      returnTextButtonAnonymous() {
+         return this.anonymous ? 'SIM' : 'NÃO'
+      }
+    },
+    methods: {
+      isLogged(evt) {
+        console.log(this.logged)
+
+        this.name == '' && !this.anonymous
+        ? alert('Insira um usuário') 
+        : this.logged = !this.logged
+     
+      },
+      isAnonymous() {
+        console.log(this.anonymous)
+
+        return this.anonymous = !this.anonymous
+      }
+    },
+  });
+</script>
