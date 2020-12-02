@@ -10,7 +10,18 @@
 
 <script>
 export default {
-    props: ['texto']
+    created() {
+        console.log('created')
+    },
+    destroyed() {
+        console.log('destroyed')
+    },
+    activated() {
+        console.log('activated')
+    },
+    deactivated() {
+        console.log('deactivated');
+    }
 }
 </script>
 
