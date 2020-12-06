@@ -1,21 +1,19 @@
 <template>
   <div class="hello">
-    <input-number />
+    <Input />
   </div>
 </template>
 
 <script>
-  import InputNumber from './inputs/InputNumber.vue'
-
-  export default {
-
-    name: 'HelloWorld',
-    components: {
-      'input-number': InputNumber
-    },
-    props: {
-      msg: String
-    }
+import Input from '../components/common/input/Input.vue'
+export default {
+  name: 'HelloWorld',
+  components: {
+    Input
+  },
+  props: {
+    msg: String
+  }
 }
 </script>
 

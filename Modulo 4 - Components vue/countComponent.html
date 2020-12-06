@@ -1,0 +1,54 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app1">
+  <h1>Instacia 1 do VUE</h1>
+  <Count1></Count1>
+  <Count></Count>
+</div>
+
+<hr>
+
+<div id="app2">
+  <h1>Instacia 2 do VUE</h1>
+  <Count2></Count2>
+ 
+  <Count></Count>
+</div>
+
+
+<script>
+
+  //Global Component
+  const count = Vue.component('count', {
+
+    template: `
+      <div>
+        <span>{{contador}}</span>
+        <button @click="contador++">+</button>
+        <button type="" @click="contador--">-</button>
+      </div>
+    `,
+    data() {
+      return {
+        contador: 0
+      }
+    }
+
+  })
+
+  const app1 = new Vue({
+    el: "#app1",
+    //criando componente localmente
+    components: {
+      count1: count
+    }
+   
+  });
+  const app2 = new Vue({
+    el: "#app2",
+    //criando componente localmente
+    components: {
+      count2: count
+    }
+  });
+</script>
